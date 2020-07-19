@@ -18,4 +18,4 @@ Run tesseract OCR on each PNG file dump result to one text file per PNG
 
 Compile to file:
 
-```ls|grep txt.txt|sort|xargs cat > allcompiled.txt``
+```ls|grep txt.txt|sort|xargs cat > allcompiled.txt```
