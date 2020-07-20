@@ -55,3 +55,7 @@ for i in *.mp4; do
     ffmpeg -i "$i" -vf "fps=fps=1,hue=s=0,negate,crop=335:64:25:279" "pngs/$i-cropped-pngs-for-ocr/%04d.png"
 done
 ```
+
+Experimenting with letting imagemagick append 200 files together vertically to one image:
+
+```convert "0[12]??.png" -append tall200.png```
