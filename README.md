@@ -4,11 +4,12 @@
 
 * bash (e.g. Ubuntu Linux)
 * ffmpeg (in standard repos)
+* tesseract (in standard repos)
 * GNU parallel (in standard repos)
 
 ## Commands
 
-Crop it down to the subtitle area (crop=335:64:25:279), invert the colors (negate), dump it to a new PNG file once per second (fps=fps=1):
+Crop it down to the subtitle area (crop=335:64:25:279), invert the colors (negate), grayscale it (hue=s=0), dump it to a new PNG file once per second (fps=fps=1):
 
 ```ffmpeg -i video.mp4 -vf "fps=fps=1,hue=s=0,negate,crop=335:64:25:279" pics/videocr6%04d.png```
 
