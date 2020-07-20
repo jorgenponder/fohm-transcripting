@@ -7,6 +7,10 @@
 * tesseract (in standard repos)
 * GNU parallel (in standard repos)
 
+## Example result
+
+https://gist.github.com/jorgenponder/9a3079fba92c5631c1e7107470da4445
+
 ## Commands
 
 Crop it down to the subtitle area (crop=335:64:25:279), invert the colors (negate), grayscale it (hue=s=0), dump it to a new PNG file once per second (fps=fps=1):
