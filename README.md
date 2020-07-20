@@ -20,8 +20,13 @@ To make what is said at Folkhälsomyndighetens press conferences in text format,
 ## Overview of current method
 
 1 Use ffmpeg to only keep the box outlined in red
+
+![bild](https://raw.githubusercontent.com/jorgenponder/fohm-transcripting/master/bild.png)
+
 2 Use ffmpeg to produce pngs from every nth frame, with only the text bands in the pngs
+
 3 Run OCR on that
+
 4 Collate into one file, in order
 
 ## Commands
