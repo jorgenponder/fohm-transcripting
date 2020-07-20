@@ -15,7 +15,7 @@ https://gist.github.com/jorgenponder/9a3079fba92c5631c1e7107470da4445
 
 ## Purpose
 
-To make what is said at Folkhälsomyndighetens press conferences in text format, so it is searchable. Preferrably with time stamps.
+To make what is said at Folkhälsomyndighetens press conferences available in text format, so it is searchable. Preferrably with time stamps.
 
 ## Overview of current method
 
@@ -28,6 +28,8 @@ To make what is said at Folkhälsomyndighetens press conferences in text format,
 3 Run OCR on that
 
 4 Collate into one file, in order
+
+Another way is of course to just ask Folkhälsomyndigheten for the text files. Please do try if you want to!
 
 ## Commands
 
