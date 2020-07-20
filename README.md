@@ -44,3 +44,12 @@ Run tesseract OCR on each PNG file and save the result to one text file per PNG:
 Compile to file:
 
 ```ls|grep txt.txt|sort|xargs cat > allcompiled.txt```
+
+## Batched version
+
+A batch script for multiple mp4 files to PNG:
+
+```for i in *.mp4; do 
+    mkdir pngs/$i-cropped-pngs-for-ocr
+    ffmpeg -i "$i" -vf "fps=fps=1,hue=s=0,negate,crop=335:64:25:279" "pngs/$i-cropped-pngs-for-ocr/%04d.png"
+done```
