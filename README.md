@@ -7,7 +7,7 @@
 * tesseract (in standard repos)
 * GNU parallel (in standard repos)
 
-Tested on Ubunto 20.04 Desktop
+Tested on Ubuntu 20.04 Desktop
 
 ## Example result
 
