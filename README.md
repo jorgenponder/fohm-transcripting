@@ -13,6 +13,17 @@ Tested on Ubuntu 20.04 Desktop
 
 https://gist.github.com/jorgenponder/9a3079fba92c5631c1e7107470da4445
 
+## Purpose
+
+To make what is said at Folkhälsomyndighetens press conferences in text format, so it is searchable. Preferrably with time stamps.
+
+## Overview of current method
+
+1 Use ffmpeg to only keep the box outlined in red
+2 Use ffmpeg to produce pngs from every nth frame, with only the text bands in the pngs
+3 Run OCR on that
+4 Collate into one file, in order
+
 ## Commands
 
 Crop it down to the subtitle area (crop=335:64:25:279), invert the colors (negate), grayscale it (hue=s=0), dump it to a new PNG file once per second (fps=fps=1), name the files sequentially with 4 digits (%04d):
