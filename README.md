@@ -56,6 +56,18 @@ for i in *.mp4; do
 done
 ```
 
+Running tesseract batched over all video directories:
+
+```
+for d in */ ; do
+    cd "$d"
+    find . -iname \*.png -print0 | parallel -0 --bar 'tesseract -l swe {} {.}.txt > /dev/null 2>&1'
+    cd ..
+done
+```
+
+Warning, it takes several hours to process one video's PNG files and may take days if you have many videos. Tesseract is very slow.
+
 Experimenting with letting imagemagick append 200 files together vertically to one image:
 
 ```convert "0[12]??.png" -append tall200.png```
