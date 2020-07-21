@@ -45,6 +45,10 @@ Compile to file:
 
 ```ls|grep txt.txt|sort|xargs cat > allcompiled.txt```
 
+Clean up the file:
+
+```cat allcompiled.txt | perl -n -e 's/[^a-zA-ZåäöÅÄÖ0-9.; \-\n]//g;s/\n^Cg;print' > allcompiled-cleaned.txt```
+
 ## Batched version
 
 A batch script for multiple mp4 files to PNG:
