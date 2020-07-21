@@ -47,7 +47,7 @@ Compile to file:
 
 Clean up the file:
 
-```cat allcompiled.txt | perl -n -e 's/[^a-zA-ZåäöÅÄÖ0-9.; \-\n]//g;s/\n^Cg;print' > allcompiled-cleaned.txt```
+```cat allcompiled.txt | perl -n -e 's/[^a-zA-ZåäöÅÄÖ0-9.; \-\n]//g;print' > allcompiled-cleaned.txt```
 
 ## Batched version
 
