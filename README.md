@@ -24,8 +24,6 @@ To make what is said at Folkhälsomyndighetens press conferences available in te
 
 2 Use ffmpeg to produce pngs from every nth frame, with only the text bands in the pngs
 
-3 Use ImageMagick to increase resolution by factor 2 and convert to npm format
-
 3 Run Tesseract OCR on that
 
 4 Collate into one file, in order
