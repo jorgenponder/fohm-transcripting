@@ -63,7 +63,7 @@ done
 
 for d in */ ; do
     cd "$d"
-    ls|grep ppm.txt|sort|xargs cat |perl -n -e 's/[^a-zA-ZåäöÅÄÖ0-9.;, \-\n]//g;print' > "../${d%/}-utskrift.txt"
+    ls|grep txt.txt|sort|xargs cat |perl -n -e 's/[^a-zA-ZåäöÅÄÖ0-9.;, \-\n]//g;print' > "../${d%/}-utskrift.txt"
     cd ..
     echo "$d utskrift done"
 done
