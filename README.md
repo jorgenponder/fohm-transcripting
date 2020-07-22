@@ -43,21 +43,6 @@ In order to avoid that bug you *must* set the environment variable
 OMP_THREAD_LIMIT=1
 ```
 
-## Overview of method
-
-1 Use ffmpeg to only keep the box outlined in red
-
-![bild](https://raw.githubusercontent.com/jorgenponder/fohm-transcripting/master/bild.png)
-
-2 Use ffmpeg to produce pngs from every nth frame, with only the text bands in the pngs
-
-3 Run OCR on that
-
-4 Collate into one file, in order
-
-Another way is of course to just ask Folkhälsomyndigheten for the text files. Please do try if you want to!
-
-
 ## Scripts
 
 ```bash
