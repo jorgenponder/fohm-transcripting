@@ -4,11 +4,8 @@
 
 * bash (e.g. Ubuntu Linux)
 * ffmpeg (in standard repos)
-* ImageMagick (in standard repos)
-* ocrad  (in standard repos)
-* (optional) GNU parallel (in standard repos)
-
-* (deprecated, not needed) tesseract (in standard repos)
+* GNU parallel (in standard repos)
+* tesseract (in standard repos)
 
 
 Tested on Ubuntu 20.04 Desktop
