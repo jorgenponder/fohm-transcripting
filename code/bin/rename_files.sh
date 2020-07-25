@@ -11,14 +11,6 @@ convert_date () {
 
 # set -- "${1:-$(</dev/stdin)}" "${@:2}"
 
-# date_part=$( echo $1 | grep -P -o '\d\d \w+ \w+' )
-# keep_part=$( echo $1 | grep -P -o '.*\d\d \w+ \w+' )
-
-# d=$( convert_date $date_part)
-# echo "$d-$keep_part.txt"
-
-# mv "$1" "$new_name"
-
 for f in *.txt ; do
     date_part=$( echo $f | grep -P -o '\d\d \w+ \w+' )
     # echo $date_part
