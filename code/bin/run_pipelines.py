@@ -4,7 +4,7 @@
 from pipeline import Pipeline, Pipelines, FileSource, FileSink, Stage, DirectorySource, identity_func
 from json_source import JSONDataSource, JSONSink
 from tsr_source import TSRSource
-from text_processing import Itemizer, RemoveEmpties, ReverseItems, RemoveDuplicates, WebVTTSink
+from text_processing import Itemizer, RemoveEmpties, ReverseItems, RemoveDuplicates, WebVTTSink, new_basename, find_convert_date
 
 class Printer(Stage):
     def __init__(self, *args, **kw):
@@ -31,8 +31,10 @@ pipeline.sections = (TSRSource(),
 
 def output(arg):
     def foo():
-        return arg + ".scr"
+        print(arg)
+        return {"filename": new_basename(arg) + ".scr", "date":find_convert_date(arg)}
     return foo
+
 
 
 
