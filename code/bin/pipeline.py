@@ -13,13 +13,13 @@ def sub_sections(section):
             sub_sections.append([])
     if not sub_sections[-1]:
         sub_sections.pop()
+    print("divided section into %s sections" % len(sub_sections))
     return sub_sections
 
 def process_section(sub_section):
-    # print("FILE NAME SET TO")
-    # print(data_source.filename )
-    # print("END FILE NAME SET")
+    print("process_section called")
 
+    
     data_source = sub_section[0]
     stages = sub_section[1:]
     for item in data_source.items():
@@ -27,6 +27,9 @@ def process_section(sub_section):
             item = stage.process(item)
             if item is None:
                 break
+    # data_source.reinitialize()
+    if hasattr(data_source, "reset"):
+        data_source.reset()
     data_sink = sub_section[-1]
     data_sink.finalize()
     return data_sink   
@@ -53,7 +56,7 @@ class Stage:
         if kw and kw.has_key('list_indices'):
             self.list_indices = kw['list_indices']
         elif kw and kw.has_key('dictionary_keys'):
-            self.list_indices = kw['dictionary_keys']
+            self.dictionary_keys = kw['dictionary_keys']
 
 
     def extract_sub_items(self,item):

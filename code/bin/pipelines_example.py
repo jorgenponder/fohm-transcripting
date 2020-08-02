@@ -4,7 +4,7 @@
 from pipeline import Pipeline, Pipelines, FileSource, FileSink, Stage, DirectorySource, identity_func
 from json_source import JSONDataSource, JSONSink
 from tsr_source import TSRSource
-from text_processing import Itemizer, RemoveEmpties, ReverseItems
+from text_processing import Itemizer, RemoveEmpties, ReverseItems, ReversedItemsIterator, RemoveDuplicates
 
 class Printer(Stage):
     def __init__(self, *args, **kw):
@@ -19,6 +19,8 @@ pipeline.sections = (TSRSource(),
                     #  Printer(),
                      Itemizer(),
                      RemoveEmpties(),
+                     ReverseItems(),
+                     RemoveDuplicates(),
                      ReverseItems(),
                      JSONSink())
 
