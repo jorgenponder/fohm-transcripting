@@ -19,6 +19,8 @@ class Itemizer(Stage):
                 obj['timestamp'] =  secs.match(parts[1]).group()
             except AttributeError:
                 return
+        else:
+            return
         if len(parts) > 2:
             obj['text'] = parts[2:]
         return self.update_item(obj, obj)
@@ -35,3 +37,33 @@ class RemoveEmpties(Stage):
                 output.append(text)
         item['text'] = output
         return self.update_item(item, item)
+
+class ReverseItems(Stage):
+    accumulator = True
+
+    def __init__(self, *args, **kw):
+        self.data = []
+
+    def process(self, item):
+        self.data.append(item)
+
+    def finalize(self):
+        self.data.reverse()
+
+    def items(self):
+        return self.data
+
+# class RemoveDuplicates(Stage):
+#     def __init__(self, *args, **kw):
+#         previous_texts = []
+#         pass
+    
+#     def process(self, item, *args):
+#         texts = item['text']
+#         output = []
+#         for self.previous_texts:
+            
+#         item['text'] = output
+#         self.previous_texts = item['text']
+
+#         return self.update_item(item, item)

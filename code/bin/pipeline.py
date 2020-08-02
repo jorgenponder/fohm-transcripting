@@ -5,21 +5,44 @@ def identity_func(arg):
         return arg
     return foo
 
+def sub_sections(section):
+    sub_sections = [[],]
+    for stage in section:
+        sub_sections[-1].append(stage)
+        if hasattr(stage, 'accumulator') and  stage.accumulator:
+            sub_sections.append([])
+    if not sub_sections[-1]:
+        sub_sections.pop()
+    return sub_sections
+
+def process_section(sub_section):
+    # print("FILE NAME SET TO")
+    # print(data_source.filename )
+    # print("END FILE NAME SET")
+
+    data_source = sub_section[0]
+    stages = sub_section[1:]
+    for item in data_source.items():
+        for stage in stages:
+            item = stage.process(item)
+            if item is None:
+                break
+    data_sink = sub_section[-1]
+    data_sink.finalize()
+    return data_sink   
+
 class Pipeline:
     """ Defines processing steps, from source to sink"""
     def run(self):
-        data_source = self.sections[0]
         # print("FILE NAME SET TO")
         # print(data_source.filename )
         # print("END FILE NAME SET")
-        stages = self.sections[1:]
-        for item in data_source.items():
-            for stage in stages:
-                item = stage.process(item)
-                if item is None:
-                    break
-        data_sink = self.sections[-1]
-        data_sink.finalize()
+        data_source = self.sections[0]
+        sections = self.sections[1:]
+        for sub_section in sub_sections(sections):
+            data_source = process_section([data_source] + sub_section)
+
+   
 
 class Stage:
     """ One processing step in a pipeline"""
