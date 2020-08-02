@@ -4,7 +4,7 @@
 from pipeline import Pipeline, Pipelines, FileSource, FileSink, Stage, DirectorySource, identity_func
 from json_source import JSONDataSource, JSONSink
 from tsr_source import TSRSource
-from text_processing import Itemizer, RemoveEmpties, ReverseItems, ReversedItemsIterator, RemoveDuplicates
+from text_processing import Itemizer, RemoveEmpties, ReverseItems, RemoveDuplicates, WebVTTSink
 
 class Printer(Stage):
     def __init__(self, *args, **kw):
@@ -22,7 +22,7 @@ pipeline.sections = (TSRSource(),
                      ReverseItems(),
                      RemoveDuplicates(),
                      ReverseItems(),
-                     JSONSink())
+                     WebVTTSink())
 
 # pipelines take a pipeline specification as input and instructions on what that pipeline wants as input, and how its output should be handled
 # input could be a string, in some keyword configuration
@@ -31,7 +31,7 @@ pipeline.sections = (TSRSource(),
 
 def output(arg):
     def foo():
-        return arg + ".tsv-to.json"
+        return arg + ".scr"
     return foo
 
 

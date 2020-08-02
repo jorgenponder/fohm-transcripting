@@ -13,11 +13,11 @@ def sub_sections(section):
             sub_sections.append([])
     if not sub_sections[-1]:
         sub_sections.pop()
-    print("divided section into %s sections" % len(sub_sections))
+    # print("divided section into %s sections" % len(sub_sections))
     return sub_sections
 
 def process_section(sub_section):
-    print("process_section called")
+    # print("process_section called")
 
     
     data_source = sub_section[0]
