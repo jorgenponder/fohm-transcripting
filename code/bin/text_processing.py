@@ -4,6 +4,9 @@ from difflib import SequenceMatcher
 
 secs = re.compile(r'\d+')
 empty = re.compile(r'^[ \n\f]*$')
+date =  re.compile(r'(\d+) (\w+) (\d\d\d\d)')
+basenamep = re.compile(r'^([^.]*)\.')
+
 
 
 class Itemizer(Stage):
@@ -15,7 +18,7 @@ class Itemizer(Stage):
         obj = {}
         if len(parts) > 1:
             try:
-                obj['timestamp'] =  secs.match(parts[1]).group()
+                obj['timestamp'] =  secs.search(parts[1]).group()
             except AttributeError:
                 return None
         else:
@@ -140,4 +143,14 @@ class WebVTTSink(Stage):
         fo.close()
         self.data = []
 
-   
+def find_convert_date (filename):
+    months={ "januari":1, "februari":2, "mars":3, "april":4, "maj":5, "juni":6, "juli":7, "augusti":8, "september":9, "oktober":10, "november":11, "december":12 }
+    (day, month, year) = date.search(filename).groups()
+    iso_string = "%s-%02d-%02d" % (year, months[month], int(day))
+    return iso_string
+
+def basename(filename):
+    return basenamep.match(filename).groups()[0]
+
+def new_basename(filename):
+    return "%s-%s" % (find_convert_date(filename) basename(filename))
