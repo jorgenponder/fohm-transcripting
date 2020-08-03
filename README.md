@@ -18,7 +18,7 @@ To make what is said at Folkhälsomyndighetens press conferences available in te
 
 ## Overview
 
-1 Use ffmpeg to only keep the box outlined in red
+1 Use ffmpeg to only keep the box outlined in red. Videos should be in 640x360 format for the below parameters to work.
 
 ![bild](https://raw.githubusercontent.com/jorgenponder/fohm-transcripting/master/bild.png)
 
