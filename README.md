@@ -2,7 +2,7 @@
 
 ## Pre requisites
 
-* bash (e.g. Ubuntu Linux)
+* bash, perl5 (e.g. Ubuntu Linux)
 * ffmpeg (in standard repos)
 * GNU parallel (in standard repos)
 * tesseract (in standard repos)
